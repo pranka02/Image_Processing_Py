@@ -10,7 +10,7 @@ def filtimg(imagepath,filt):
 	inp = array(img)
 	lenimg= len(inp)
 	widimg = len(inp[0])
-	size = lenimg*widimg							        # convert to numoy array
+	size = lenimg*widimg							        # convert to numpy array
 	x = inp.dtype
 	img.show()									# display image 
 							
