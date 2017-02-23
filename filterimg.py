@@ -10,27 +10,27 @@ def filtimg(imagepath,filt):
 	inp = array(img)
 	lenimg= len(inp)
 	widimg = len(inp[0])
-	size = lenimg*widimg										# convert to numoy array
+	size = lenimg*widimg							        # convert to numoy array
 	x = inp.dtype
-	img.show()													# display image 
+	img.show()									# display image 
 							
 	y = conv2D(inp,filt)								
 	siz1= len(y)
 
 
-	for i in range(siz1):										# normalizing pixel values  
+	for i in range(siz1):								# normalizing pixel values  
 		for j in range(siz1):
 			if y[i][j] >255:
 				y[i][j] =255
 			if y[i][j] <0:
 				y[i][j] =0
 
-	y = y.astype(np.uint8)												# converting to unit8
+	y = y.astype(np.uint8)								# converting to unit8
 
 	fftimg = np.fft.fft2(inp)
 	fftimgs =np.fft.fftshift(fftimg)									# calculating fft of input image 
 	fftfiltimg = np.fft.fft2(y)
-	fftfiltimgs =np.fft.fftshift(fftfiltimg)							# calculating fft of filtered image 
+	fftfiltimgs =np.fft.fftshift(fftfiltimg)							        # calculating fft of filtered image 
 	fftfilt = np.fft.fft2(filt, s=(lenimg, widimg))				
 	fftfilts = np.fft.fftshift(fftfilt)
 
@@ -44,8 +44,6 @@ def filtimg(imagepath,filt):
 	ax[2].set_title('frequency response of filter')
 	plt.savefig('plot.png')
 	plt.show()
-
-
 
 	filtimg= Image.fromarray(y, 'L')
 	filtimg.show()
