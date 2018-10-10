@@ -21,7 +21,7 @@ def conv2D(inp,ker):
 	kcenty =round(kc/2- 0.5)									# y coordinate of center of kernel 
 
 	padrow = round(kr/2)
-	padcol = round(kr/2)
+	padcol = round(kc/2)
 	inp = np.lib.pad(inp,(padrow,padcol),'constant',constant_values= 0)	# zero-padding input 
 
 	inr = len(inp)												# no of rows in modified input
